@@ -10,9 +10,13 @@ This project is a simple Flask API that demonstrates how to create a basic web s
 machine-learning
 ├── src
 │   ├── app.py
-│   └── config.py
-├── requirements.txt
-└── README.md
+│   ├── config.py
+│   ├── model.py
+|   └── temp.ipynb
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
 
 ## Requirements
@@ -24,22 +28,28 @@ machine-learning
 
 1. Clone the repository:
 
-   ```
-   git clone <repository-url>
-   cd machine-learning
-   ```
+```
+   git clone <repository-url> cd machine-learning
+```
 
 2. Install the required packages:
-   ```
+
+```
    pip install -r requirements.txt
-   ```
+```
+
+If you encounter an error regarding `werkzeug.urls` (e.g., "cannot import name 'url_quote'"), downgrade werkzeug with:
+
+```
+   pip install werkzeug==2.0.3
+```
 
 ## Running the Application
 
-To run the Flask application, execute the following command:
+To run the Flask application, execute:
 
 ```
-python src/app.py
+   python src/app.py
 ```
 
 The application will start on `http://127.0.0.1:5000/`.
@@ -48,7 +58,7 @@ The application will start on `http://127.0.0.1:5000/`.
 
 The API has a single endpoint:
 
-- `GET /`: Returns a simple message.
+- `POST /predict`: Receive some text and returns a sentiment from received text (Negative, Neutral, or Positive).
 
 ## License
 
